@@ -1,6 +1,6 @@
 # Diet Manager
 
-> Diet manager is an application that allows to track your daily calorie balance. With [Calorie Ninjas API](https://calorie ninjas.com) application easily counts calories from given recipes or single ingredients. User can add and save new recipes, track progress when it comes to weight and body measurements.
+> Diet manager is an application that allows to track your daily calorie balance. With [Calorie Ninjas API](https://calorieninjas.com) application easily counts calories from given recipes or single ingredients. User can add and save new recipes, track progress when it comes to weight and body measurements.
 
 ## Technologies
 
