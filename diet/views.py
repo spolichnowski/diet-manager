@@ -10,6 +10,7 @@ from .forms import AddIngredientsForm, SearchInput
 from recipes.models import Recipe
 
 from datetime import date
+from decouple import config
 import requests
 
 
@@ -131,7 +132,8 @@ class DietView(LoginRequiredMixin, View):
 
 def get_macros(query):
     api_url = 'https://api.calorieninjas.com/v1/nutrition?query='
-    response = requests.get(api_url + query, headers={'X-Api-Key': API_KEY})
+    response = requests.get(
+        api_url + query, headers={'X-Api-Key': config('API_KEY')})
     if response.status_code == requests.codes.ok:
         response = response.json()['items']
         ing = dict()
@@ -145,6 +147,3 @@ def get_macros(query):
         return ing, ing_names
     else:
         print("Error:", response.status_code, response.text)
-
-
-API_KEY = 'ybLTfcuuK7svgV3ecTldxQ==kkwHRB7vgaLYnt3l'

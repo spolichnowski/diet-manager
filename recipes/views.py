@@ -6,6 +6,8 @@ from django.contrib import messages
 from .forms import RecipeForm
 from diet.forms import SearchInput
 from .models import Recipe, RecipeMacros
+from decouple import config
+
 import requests
 
 
@@ -98,7 +100,8 @@ class RecipeView(View):
 
 def get_food(query):
     api_url = 'https://api.calorieninjas.com/v1/nutrition?query='
-    response = requests.get(api_url + query, headers={'X-Api-Key': API_KEY})
+    response = requests.get(
+        api_url + query, headers={'X-Api-Key': config('API_KEY')})
     if response.status_code == requests.codes.ok:
         response = response.json()['items']
         print(response)
@@ -115,6 +118,3 @@ def get_food(query):
         return ing, ing_names
     else:
         print("Error:", response.status_code, response.text)
-
-
-API_KEY = 'ybLTfcuuK7svgV3ecTldxQ==kkwHRB7vgaLYnt3l'
