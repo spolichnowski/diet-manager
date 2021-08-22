@@ -1,0 +1,203 @@
+<!--
+=========================================================
+* Argon Dashboard - v1.2.0
+=========================================================
+* Product Page: https://www.creative-tim.com/product/argon-dashboard
+
+* Copyright  Creative Tim (http://www.creative-tim.com)
+* Coded by www.creative-tim.com
+=========================================================
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+-->
+
+<!--
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="Creative Tim">
+  <title>Login</title>
+  <link rel="icon" href="{% static 'img/brand/favicon.png' %}" type="image/png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
+  <link rel="stylesheet" href="{% static 'vendor/nucleo/css/nucleo.css' %}" type="text/css">
+  <link rel="stylesheet" href="{% static 'vendor/@fortawesome/fontawesome-free/css/all.min.css' %}" type="text/css">
+  <link rel="stylesheet" href="{% static 'css/argon.css' %}" type="text/css">
+  <link rel="stylesheet" href="{% static 'css/custom.css' %}" type="text/css">
+</head>
+
+<body class="h-100vh">
+  <div class="bg-primary">
+  <nav id="navbar-main" class="navbar navbar-horizontal navbar-transparent navbar-main navbar-expand-lg navbar-light">
+    <div class="container">
+      <a class="navbar-brand" href="dashboard.html">
+          <img src="{% static 'img/brand/blue.png' %}" class="navbar-brand-img" alt="...">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="navbar-collapse navbar-custom-collapse collapse" id="navbar-collapse">
+        <div class="navbar-collapse-header">
+          <div class="row">
+            <div class="col-6 collapse-brand">
+              <a href="dashboard.html">
+                <img src="{% static 'img/brand/blue.png' %}" class="navbar-brand-img" alt="...">
+              </a>
+            </div>
+            <div class="col-6 collapse-close">
+              <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a href="{% url 'main' %}" class="nav-link">
+              <span class="nav-link-inner--text">Strona Główna</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="" class="nav-link">
+              <span class="nav-link-inner--text">Sklep</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="register.html" class="nav-link">
+              <span class="nav-link-inner--text">Artykuły</span>
+            </a>
+          </li>
+          {% comment %} <li class="nav-item">
+            <a href="{% url 'recipes' %}" class="nav-link">
+              <span class="nav-link-inner--text">Przepisy</span>
+            </a>
+          </li> {% endcomment %}
+          <li class="nav-item">
+            <a href="{% url 'dashboard' %}" class="nav-link">
+              <span class="nav-link-inner--text">Trener</span>
+            </a>
+          </li>
+        </ul>
+        <hr class="d-lg-none" />
+        <ul class="navbar-nav align-items-lg-center ml-lg-auto">
+          <li class="nav-item">
+            <a class="nav-link nav-link-icon" href="https://www.facebook.com/creativetim" target="_blank" data-toggle="tooltip" data-original-title="Like us on Facebook">
+              <i class="fab fa-facebook-square"></i>
+              <span class="nav-link-inner--text d-lg-none">Facebook</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-icon" href="https://www.instagram.com/creativetimofficial" target="_blank" data-toggle="tooltip" data-original-title="Follow us on Instagram">
+              <i class="fab fa-instagram"></i>
+              <span class="nav-link-inner--text d-lg-none">Instagram</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-icon" href="https://twitter.com/creativetim" target="_blank" data-toggle="tooltip" data-original-title="Follow us on Twitter">
+              <i class="fab fa-twitter-square"></i>
+              <span class="nav-link-inner--text d-lg-none">Twitter</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-icon" href="https://tiktok.com/" target="_blank" data-toggle="tooltip" data-original-title="Fallow us on TikTok">
+              <i class="fab fa-tiktok"></i>
+              <span class="nav-link-inner--text d-lg-none">TikTok</span>
+            </a>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="main-content pt-9 " id="panel">
+    <div class="header bg-primary pb-6">
+      <div class="container">
+        <div class="header-body">
+          <div class="row align-items-center justify-content-between py-4">
+            <div class="col-12">
+              <div class="card">
+                <div class="card-header bg-transparent">
+                  <h3 class="mb-0">Recipes</h3>
+                </div>
+              </div>
+            </div>
+            <form method='post' class="row d-flex align-items-center">
+              {% csrf_token %}
+              <div class="col-lg-4 my-2 my-md-0">
+                {{ search_form.category }}
+              </div>
+              <div class="col-lg-8 my-2 my-md-0">
+                
+                <div class="input-group">
+                  {{ search_form.recipe }}
+                  <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-search"></i>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row row-cols-1 row-cols-md-3 row-cols-sm-3 g-4">
+        {% if recipes.length > 0 %}
+          {% for recipe in recipes %}
+          <div class="col">
+            <a href="{% url 'recipe' id=recipe.id %}">
+              <div class="card">
+                {% if recipe.photo %}
+                <img src="{{ recipe.photo.url }}" class="card-img-top custom-img" alt="...">
+                {% endif %}
+                <div class="card-body p-3">
+                  <h5 class="">{{ recipe.name }}</h5>
+                </div>
+              </div>
+            </a>
+          </div>
+        {% endfor %}
+      {% endif %}
+      </div>
+    </div>
+
+  <footer class="py-5" id="footer-main">
+    <div class="container">
+      <div class="row align-items-center justify-content-xl-between">
+        <div class="col-xl-6">
+          <div class="copyright text-center text-xl-left text-muted">
+            &copy; 2020 <a href="https://www.creative-tim.com" class="font-weight-bold ml-1" target="_blank">Creative Tim</a>
+          </div>
+        </div>
+        <div class="col-xl-6">
+          <ul class="nav nav-footer justify-content-center justify-content-xl-end">
+            <li class="nav-item">
+              <a href="https://www.creative-tim.com" class="nav-link" target="_blank">Creative Tim</a>
+            </li>
+            <li class="nav-item">
+              <a href="https://www.creative-tim.com/presentation" class="nav-link" target="_blank">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a href="http://blog.creative-tim.com" class="nav-link" target="_blank">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a href="https://github.com/creativetimofficial/argon-dashboard/blob/master/LICENSE.md" class="nav-link" target="_blank">MIT License</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="{% static 'vendor/jquery/dist/jquery.min.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'vendor/js-cookie/js.cookie.js' %}"></script>
+  <script src="{% static 'vendor/jquery.scrollbar/jquery.scrollbar.min.js' %}"></script>
+  <script src="{% static 'vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js' %}"></script>
+  <script src="{% static 'js/argon.js' %}"></script>
+</body>
+
+</html>
