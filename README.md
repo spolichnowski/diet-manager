@@ -27,7 +27,7 @@ $ pip --version
 $ pip install --upgrade pip
 ```
 
-Now time to install all the requirements like TensorFlow, Keras etc. :
+Now time to install all the requirements:
 
 ```
 $ cd ../project folder/backend
@@ -55,5 +55,5 @@ Full form can also be used to run django commands: '$python3 manage.py "command"
 
 ## Contact
 
-Created by Stanisław Polichnowski
-Based on Templates created by: [Creative Tim](https://www.creative-tim.com)
+Created by [Stanisław Polichnowski](https://www.spolichnowski.com)
+Templates based on: [Creative Tim](https://www.creative-tim.com)
